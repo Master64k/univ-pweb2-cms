@@ -25,23 +25,28 @@
 {% set groupedFields = fieldsData.groupedFields %}
 {% set pK = '$' ~ singularVar ~ '->' ~ primaryKey[0] %}
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit {{ singularHumanName }}'), ['action' => 'edit', {{ pK|raw }}]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete {{ singularHumanName }}'), ['action' => 'delete', {{ pK|raw }}], ['confirm' => __('Are you sure you want to delete # {0}?', {{ pK|raw }})]) ?> </li>
-        <li><?= $this->Html->link(__('List {{ pluralHumanName }}'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New {{ singularHumanName }}'), ['action' => 'add']) ?> </li>
-{% set done = [] %}
-{% for type, data in associations %}
-{% for alias, details in data %}
-{% if details.controller is not same as(_view.name) and details.controller not in done %}
-        <li><?= $this->Html->link(__('List {{ alias|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New {{ alias|underscore|singularize|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'add']) ?> </li>
-{% set done = done|merge(['controller']) %}
-{% endif %}
-{% endfor %}
-{% endfor %}
-    </ul>
+
+    <h2 class="heading"><?= __('Actions') ?></h2>
+    <div class="btn-toolbar" role="toolbar" >
+        <div class="btn-group btn-group-sm" >
+
+            <?= $this->Html->link(__('Edit {{ singularHumanName }}'),  ['action' => 'edit', {{ pK|raw }}], ['class' => 'btn btn-primary']) ?>
+            <?= $this->Form->postLink(__('Delete {{ singularHumanName }}'), ['action' => 'delete', {{ pK|raw }}],['class' => 'btn btn-danger'], ['confirm' => __('Tem certeza de que deseja deletar # {0}?', {{ pK|raw }})] ) ?>
+            <?= $this->Html->link(__('List {{ pluralHumanName }}'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+            <?= $this->Html->link(__('New {{ singularHumanName }}'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
+            {% set done = [] %}
+            {% for type, data in associations %}
+            {% for alias, details in data %}
+            {% if details.controller is not same as(_view.name) and details.controller not in done %}
+                <?= $this->Html->link(__('List {{ alias|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'index']) ?>
+                <?= $this->Html->link(__('New {{ alias|underscore|singularize|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'add']) ?>
+            {% set done = done|merge(['controller']) %}
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+    <!--</ul>-->
 </nav>
 <div class="{{ pluralVar }} view large-9 medium-8 columns content">
     <h3><?= h(${{ singularVar }}->{{ displayField }}) ?></h3>

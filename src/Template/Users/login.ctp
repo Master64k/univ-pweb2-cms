@@ -1,3 +1,8 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ */
+?>
 
 <?php
 
@@ -7,15 +12,18 @@
 
 <div class="users form">
 <?= $this->Flash->render('auth') ?>
-<?= $this->Form->create('User') ?>
+    <?= $this->Form->create() ?>
     <fieldset>
-        <legend><?= __('Por favor informe seu usuário e senha') ?></legend>
-        <?= $this->Form->input('login', ['class' => 'form-control']) ?>
-        <?= $this->Form->input('password', ['class' => 'form-control']) ?>
+        <?= $this->Html->image('logo-admin.png', ['width' => '144', 'height' => '144']) ?>
+        <legend><?= __('Please enter your username and password') ?></legend>
+        <?= $this->Form->control('login', ['class' => 'form-control']) ?>
+        <?= $this->Form->control('password', ['class' => 'form-control']) ?>
     </fieldset>
-<?= $this->Form->button(__('Login'), ['class' => 'btn btn-primary']); ?>
-<?= $this->Form->end() ?>
+    <?= $this->Form->button(__('Login'), ['class' => 'btn btn-primary']); ?>
+    <?= $this->Form->end() ?>
+    <p class="mt-5 mb-3 text-muted">&copy; TSI 2017.1 UNCISAL</p>
 </div>
+
 
 <?php
 

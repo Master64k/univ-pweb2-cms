@@ -5,13 +5,18 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
-    </ul>
+
+    <h2 class="heading"><?= __('Actions') ?></h2>
+    <div class="btn-toolbar" role="toolbar" >
+        <div class="btn-group btn-group-sm" >
+
+            <?= $this->Html->link(__('Edit User'),  ['action' => 'edit', $user->id], ['class' => 'btn btn-primary']) ?>
+            <?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id],['class' => 'btn btn-danger'], ['confirm' => __('Tem certeza de que deseja deletar # {0}?', $user->id)] ) ?>
+            <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'btn btn-primary']) ?>
+            <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
+                                                                                                                                </div>
+    </div>
+    <!--</ul>-->
 </nav>
 <div class="users view large-9 medium-8 columns content">
     <h3><?= h($user->id) ?></h3>

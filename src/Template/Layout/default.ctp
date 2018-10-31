@@ -252,7 +252,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
         <div class='row'>
 
-            <div class="col-sm-6 offset-sm-3 mt-5">
+            <div class="col-sm-8 offset-sm-2 mt-5">
                 <?= $this->Flash->render() ?>
                 <?= $this->fetch('content') ?>
 

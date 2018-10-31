@@ -5,10 +5,15 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
-    </ul>
+    <!--<ul class="side-nav">-->
+    <h2 class="heading"><?= __('Actions') ?></h2>
+    <div class="btn-toolbar" role="toolbar" >
+        <div class="btn-group btn-group-sm" >
+
+        <?= $this->Html->link(__('Novo User'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
+        </div>
+    </div>
+    <!--</ul>-->
 </nav>
 <div class="users index large-9 medium-8 columns content">
     <h3><?= __('Users') ?></h3>
@@ -34,22 +39,23 @@
                 <td><?= h($user->updated_at) ?></td>
                 <td><?= $this->Number->format($user->active) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $user->id], ['class' => 'btn btn-sm btn-primary']) ?>
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $user->id], ['class' => 'btn btn-sm btn-secondary']) ?>
-                    <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $user->id], ['class' => 'btn btn-sm btn-danger'], ['confirm' => __('Tem certeza de que quer deletar # {0}?', $user->id)]) ?>
+                    <div class="btn-group">
+                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $user->id], ['class' => 'btn btn-sm btn-primary']) ?>
+                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $user->id], ['class' => 'btn btn-sm btn-secondary']) ?>
+                        <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $user->id], ['class' => 'btn btn-sm btn-danger'], ['confirm' => __('Tem certeza de que quer deletar # {0}?', $user->id)]) ?>
+                    </div>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->first('<< ') ?>
+            <?= $this->Paginator->prev('<') ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->next('>') ?>
+            <?= $this->Paginator->last( '>>') ?>
         </ul>
         <p><?= $this->Paginator->counter(['format' => __('Pagina {{page}} de {{page}}, mostrando {{current}} registros de {{count}} total')]) ?></p>
-    </div>
+
 </div>

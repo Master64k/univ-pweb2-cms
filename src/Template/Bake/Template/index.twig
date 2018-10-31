@@ -21,20 +21,25 @@
 ?>
 {% set fields = Bake.filterFields(fields, schema, modelObject, indexColumns, ['binary', 'text']) %}
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New {{ singularHumanName }}'), ['action' => 'add']) ?></li>
+    <!--<ul class="side-nav">-->
+    <h2 class="heading"><?= __('Actions') ?></h2>
+    <div class="btn-toolbar" role="toolbar" >
+        <div class="btn-group btn-group-sm" >
+
+        <?= $this->Html->link(__('Novo {{ singularHumanName }}'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
 {% set done = [] %}
 {% for type, data in associations %}
 {% for alias, details in data %}
 {% if details.navLink and details.controller is not same as(_view.name) and details.controller not in done %}
-        <li><?= $this->Html->link(__('List {{ alias|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New {{ alias|singularize|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'add']) ?></li>
+        <?= $this->Html->link(__('List {{ alias|underscore|humanize }}'), ['class' => 'btn btn-primary'], ['controller' => '{{ details.controller }}', 'action' => 'index']) ?>
+        <?= $this->Html->link(__('New {{ alias|singularize|underscore|humanize }}'), ['class' => 'btn btn-primary'], ['controller' => '{{ details.controller }}', 'action' => 'add']) ?>
 {% set done = done|merge([details.controller]) %}
 {% endif %}
 {% endfor %}
 {% endfor %}
-    </ul>
+        </div>
+    </div>
+    <!--</ul>-->
 </nav>
 <div class="{{ pluralVar }} index large-9 medium-8 columns content">
     <h3><?= __('{{ pluralHumanName }}') ?></h3>
@@ -69,22 +74,23 @@
 {% endfor %}
 {% set pk = '$' ~ singularVar ~ '->' ~ primaryKey[0] %}
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', {{ pk|raw }}], ['class' => 'btn btn-sm btn-primary']) ?>
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', {{ pk|raw }}], ['class' => 'btn btn-sm btn-secondary']) ?>
-                    <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', {{ pk|raw }}], ['class' => 'btn btn-sm btn-danger'], ['confirm' => __('Tem certeza de que quer deletar # {0}?', {{ pk|raw }})]) ?>
+                    <div class="btn-group">
+                        <?= $this->Html->link(__('Ver'), ['action' => 'view', {{ pk|raw }}], ['class' => 'btn btn-sm btn-primary']) ?>
+                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', {{ pk|raw }}], ['class' => 'btn btn-sm btn-secondary']) ?>
+                        <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', {{ pk|raw }}], ['class' => 'btn btn-sm btn-danger'], ['confirm' => __('Tem certeza de que quer deletar # {0}?', {{ pk|raw }})]) ?>
+                    </div>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->first('<< ') ?>
+            <?= $this->Paginator->prev('<') ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->next('>') ?>
+            <?= $this->Paginator->last( '>>') ?>
         </ul>
         <p><?= $this->Paginator->counter(['format' => __('Pagina {{ '{{' }}page{{ '}}' }} de {{ '{{' }}page{{ '}}' }}, mostrando {{ '{{' }}current{{ '}}' }} registros de {{ '{{' }}count{{ '}}' }} total')]) ?></p>
-    </div>
+
 </div>
