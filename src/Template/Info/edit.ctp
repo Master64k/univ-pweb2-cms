@@ -30,7 +30,7 @@
                         echo $this->Form->control('phone', ['class' => 'form-control']);
                         echo $this->Form->control('facebook', ['class' => 'form-control']);
                         echo $this->Form->control('twitter', ['class' => 'form-control']);
-                        echo $this->Form->control('instageam', ['class' => 'form-control']);
+                        echo $this->Form->control('instagram', ['class' => 'form-control']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Salvar'), ['class' => 'btn btn-primary mt-2']) ?>

@@ -39,7 +39,7 @@
             </tr>
                                     <tr>
                 <th scope="row"><?= __('Instageam') ?></th>
-                <td><?= h($info->instageam) ?></td>
+                <td><?= h($info->instagram) ?></td>
             </tr>
                                                             <tr>
                 <th scope="row"><?= __('Id') ?></th>

@@ -25,7 +25,7 @@
                 <th scope="col"><?= $this->Paginator->sort('phone') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('facebook') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('twitter') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('instageam') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('instagram') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>

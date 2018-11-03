@@ -76,7 +76,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="sidebar-sticky">
              <ul class="nav flex-column">
 
-              <?php if($this->request->here() == '/pages/index'): ?>
+              <?php if(explode('/', $this->request->getRequestTarget())[1] == 'pages'): ?>
                   <li class="nav-item">
                       <?= $this->Html->link('Home', '/pages/index', ['class' => 'nav-link active']) ?>
                       <i class="fa fa-home"></i>
@@ -92,7 +92,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
               <?php endif; ?>
 
-              <?php if($this->request->here() == '/users/index'): ?>
+              <?php if(explode('/', $this->request->getRequestTarget())[1] == 'users'): ?>
 
                   <li class="nav-item">
 
@@ -112,7 +112,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
               <?php endif; ?>
 
-              <?php if($this->request->here() == '/news/index'): ?>
+              <?php if(explode('/', $this->request->getRequestTarget())[1] == 'news'): ?>
 
                   <li class="nav-item">
 
@@ -132,8 +132,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
               <?php endif; ?>
 
-
-              <?php if($this->request->here() == '/videos/index'): ?>
+              <?php if(explode('/', $this->request->getRequestTarget())[1] == 'videos'): ?>
 
                   <li class="nav-item">
 
@@ -153,8 +152,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
               <?php endif; ?>
 
-
-              <?php if($this->request->here() == '/photos/index'): ?>
+              <?php if(explode('/', $this->request->getRequestTarget())[1] == 'photos'): ?>
 
                   <li class="nav-item">
 
@@ -174,15 +172,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
               <?php endif; ?>
 
-
-
-              <li class="nav-item">
-                <?= $this->Html->link('Informações básicas', '/info/index', ['class' => 'nav-link']) ?>
-                  <i class="fa fa-info"></i>
-
-              </li>
-
-              <?php if($this->request->here() == '/info/index'): ?>
+              <?php if(explode('/', $this->request->getRequestTarget())[1] == 'info'): ?>
 
                   <li class="nav-item">
 
@@ -194,15 +184,35 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
               <?php else: ?>
 
                   <li class="nav-item">
-
-                      <?= $this->Html->link('Fale conosco', '/contactus/index', ['class' => 'nav-link']) ?>
-                      <i class="fa fa-envelope"></i>
+                      <?= $this->Html->link('Informações básicas', '/info/index', ['class' => 'nav-link']) ?>
+                      <i class="fa fa-info"></i>
 
                   </li>
 
               <?php endif; ?>
 
-              <?php if($this->request->here() == '/banners/index'): ?>
+              <?php if(explode('/', $this->request->getRequestTarget())[1] == 'contactus'): ?>
+
+                  <li class="nav-item">
+
+                      <?= $this->Html->link('Fale conosco', '/contactus/index', ['class' => 'nav-link active']) ?>
+                      <i class="fa fa-envelope"></i>
+
+                 </li>
+
+
+              <?php else: ?>
+
+                  <li class="nav-item">
+
+                      <?= $this->Html->link('Fale conosco', '/contactus/index', ['class' => 'nav-link']) ?>
+                      <i class="fa fa-envelope"></i>
+
+                 </li>
+
+              <?php endif; ?>
+
+              <?php if(explode('/', $this->request->getRequestTarget())[1] == 'banners'): ?>
 
                   <li class="nav-item">
 
@@ -222,7 +232,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
               <?php endif; ?>
 
-             <?php if($this->request->here() == '/faqs/index'): ?>
+             <?php if(explode('/', $this->request->getRequestTarget())[1] == 'faqs'): ?>
 
                  <li class="nav-item">
 
@@ -257,10 +267,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <?= $this->fetch('content') ?>
 
             </div>
-
-        </div>
-
-
 
         </div>
 
