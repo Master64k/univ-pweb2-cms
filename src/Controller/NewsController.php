@@ -58,8 +58,7 @@ class NewsController extends AppController
             }
             $this->Flash->error(__('The news could not be saved. Please, try again.'));
         }
-        $photos = $this->News->Photos->find('list', ['limit' => 200]);
-        $this->set(compact('news', 'photos'));
+        $this->set(compact('news'));
     }
 
     /**
@@ -72,7 +71,7 @@ class NewsController extends AppController
     public function edit($id = null)
     {
         $news = $this->News->get($id, [
-            'contain' => ['Photos']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $news = $this->News->patchEntity($news, $this->request->getData());
@@ -83,8 +82,7 @@ class NewsController extends AppController
             }
             $this->Flash->error(__('The news could not be saved. Please, try again.'));
         }
-        $photos = $this->News->Photos->find('list', ['limit' => 200]);
-        $this->set(compact('news', 'photos'));
+        $this->set(compact('news'));
     }
 
     /**

@@ -6,10 +6,10 @@
     <title>Login - Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <?= $this->Html->css('bootstrap\bootstrap.css') ?>
+    <?= $this->Html->css('bootstrap/bootstrap.css') ?>
 
-    <?= $this->Html->script('jquery\jquery.js') ?>
-    <?= $this->Html->script('bootstrap\bootstrap.js') ?>
+    <?= $this->Html->script('jquery/jquery.js') ?>
+    <?= $this->Html->script('bootstrap/bootstrap.js') ?>
 
     <?= $this->Html->css('login.css') ?>
 

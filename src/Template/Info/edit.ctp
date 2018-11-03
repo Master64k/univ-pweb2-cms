@@ -5,29 +5,34 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $info->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $info->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Info'), ['action' => 'index']) ?></li>
-    </ul>
+    <!--<ul class="side-nav">-->
+    <h2 class="heading"><?= __('Ações') ?></h2>
+    <div class="btn-toolbar" role="toolbar" >
+        <div class="btn-group btn-group-sm" >
+
+                            <?= $this->Form->postLink(
+                        __('Deletar'),
+                        ['action' => 'delete', $info->id], ['class' => 'btn btn-danger'],
+                        ['confirm' => __('Tem certeza de que deseja deletar # {0}?', $info->id)]
+                    )
+                ?>
+                            <?= $this->Html->link(__('Listar Info'), ['action' => 'index'], ['class' => 'btn btn-secondary']) ?>
+                    </div>
+    </div>
+
 </nav>
 <div class="info form large-9 medium-8 columns content">
     <?= $this->Form->create($info) ?>
     <fieldset>
         <legend><?= __('Edit Info') ?></legend>
         <?php
-            echo $this->Form->control('email');
-            echo $this->Form->control('phone');
-            echo $this->Form->control('facebook');
-            echo $this->Form->control('twitter');
-            echo $this->Form->control('instageam');
+                                    echo $this->Form->control('email', ['class' => 'form-control']);
+                        echo $this->Form->control('phone', ['class' => 'form-control']);
+                        echo $this->Form->control('facebook', ['class' => 'form-control']);
+                        echo $this->Form->control('twitter', ['class' => 'form-control']);
+                        echo $this->Form->control('instageam', ['class' => 'form-control']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Salvar'), ['class' => 'btn btn-primary mt-2']) ?>
     <?= $this->Form->end() ?>
 </div>

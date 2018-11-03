@@ -45,8 +45,8 @@ class FaqsFixture extends TestFixture
                 'id' => 1,
                 'question' => 'Lorem ipsum dolor sit amet',
                 'answer' => 'Lorem ipsum dolor sit amet',
-                'created_at' => 1540952465,
-                'updated_at' => 1540952465,
+                'created_at' => 1541266183,
+                'updated_at' => 1541266183,
                 'active' => 1
             ],
         ];

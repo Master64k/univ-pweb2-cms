@@ -52,11 +52,11 @@ class ContactUsController extends AppController
         if ($this->request->is('post')) {
             $contactU = $this->ContactUs->patchEntity($contactU, $this->request->getData());
             if ($this->ContactUs->save($contactU)) {
-                $this->Flash->success(__('The contact u has been saved.'));
+                $this->Flash->success(__('Sua mensagem foi enviada.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The contact u could not be saved. Please, try again.'));
+            $this->Flash->error(__('Sua mensagem não pôde ser enviada, tente novamente.'));
         }
         $this->set(compact('contactU'));
     }
@@ -76,11 +76,11 @@ class ContactUsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $contactU = $this->ContactUs->patchEntity($contactU, $this->request->getData());
             if ($this->ContactUs->save($contactU)) {
-                $this->Flash->success(__('The contact u has been saved.'));
+                $this->Flash->success(__('A mensagem foi salva com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The contact u could not be saved. Please, try again.'));
+            $this->Flash->error(__('A mensagem não pôde ser salva. tente novamente.'));
         }
         $this->set(compact('contactU'));
     }
@@ -97,9 +97,9 @@ class ContactUsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $contactU = $this->ContactUs->get($id);
         if ($this->ContactUs->delete($contactU)) {
-            $this->Flash->success(__('The contact u has been deleted.'));
+            $this->Flash->success(__('A mensagem foi deletada.'));
         } else {
-            $this->Flash->error(__('The contact u could not be deleted. Please, try again.'));
+            $this->Flash->error(__('A mensagem não pôde ser deletada, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

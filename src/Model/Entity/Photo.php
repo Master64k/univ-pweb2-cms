@@ -17,7 +17,7 @@ use Cake\ORM\Entity;
  * @property int $active
  *
  * @property \App\Model\Entity\Page[] $pages
- * @property \App\Model\Entity\News[] $news
+ * @property \App\Model\Entity\News $news
  * @property \App\Model\Entity\Banner[] $banners
  */
 class Photo extends Entity

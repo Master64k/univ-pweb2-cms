@@ -56,8 +56,8 @@ class VideosGalleryFixture extends TestFixture
                 'id' => 1,
                 'news_id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
-                'created_at' => 1540952467,
-                'updated_at' => 1540952467,
+                'created_at' => 1541266184,
+                'updated_at' => 1541266184,
                 'active' => 1
             ],
         ];

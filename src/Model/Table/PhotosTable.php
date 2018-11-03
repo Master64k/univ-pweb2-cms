@@ -13,7 +13,6 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\NewsTable|\Cake\ORM\Association\BelongsTo $News
  * @property \App\Model\Table\BannersTable|\Cake\ORM\Association\BelongsTo $Banners
  * @property \App\Model\Table\BannersTable|\Cake\ORM\Association\BelongsToMany $Banners
- * @property \App\Model\Table\NewsTable|\Cake\ORM\Association\BelongsToMany $News
  * @property \App\Model\Table\PagesTable|\Cake\ORM\Association\BelongsToMany $Pages
  *
  * @method \App\Model\Entity\Photo get($primaryKey, $options = [])
@@ -55,11 +54,6 @@ class PhotosTable extends Table
             'foreignKey' => 'photo_id',
             'targetForeignKey' => 'banner_id',
             'joinTable' => 'banners_photos'
-        ]);
-        $this->belongsToMany('News', [
-            'foreignKey' => 'photo_id',
-            'targetForeignKey' => 'news_id',
-            'joinTable' => 'news_photos'
         ]);
         $this->belongsToMany('Pages', [
             'foreignKey' => 'photo_id',

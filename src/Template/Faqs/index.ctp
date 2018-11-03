@@ -5,14 +5,19 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Faq'), ['action' => 'add']) ?></li>
-    </ul>
+    <!--<ul class="side-nav">-->
+    <h2 class="heading"><?= __('Ações') ?></h2>
+    <div class="btn-toolbar" role="toolbar" >
+        <div class="btn-group btn-group-sm" >
+
+        <?= $this->Html->link(__('Novo(a) Faq'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
+        </div>
+    </div>
+    <!--</ul>-->
 </nav>
 <div class="faqs index large-9 medium-8 columns content">
     <h3><?= __('Faqs') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table cellpadding="0" cellspacing="0" class="table table-responsive table-striped">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -34,22 +39,23 @@
                 <td><?= h($faq->updated_at) ?></td>
                 <td><?= $this->Number->format($faq->active) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $faq->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $faq->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $faq->id], ['confirm' => __('Are you sure you want to delete # {0}?', $faq->id)]) ?>
+                    <div class="btn-group">
+                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $faq->id], ['class' => 'btn btn-sm btn-primary']) ?>
+                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $faq->id], ['class' => 'btn btn-sm btn-secondary']) ?>
+                        <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $faq->id], ['class' => 'btn btn-sm btn-danger'], ['confirm' => __('Tem certeza de que quer deletar # {0}?', $faq->id)]) ?>
+                    </div>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->first('<< ') ?>
+            <?= $this->Paginator->prev('<') ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->next('>') ?>
+            <?= $this->Paginator->last( '>>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-    </div>
+        <p><?= $this->Paginator->counter(['format' => __('Pagina {{page}} de {{page}}, mostrando {{current}} registros de {{count}} total')]) ?></p>
+
 </div>

@@ -51,10 +51,10 @@ class NewsFixture extends TestFixture
                 'id' => 1,
                 'title' => 'Lorem ipsum dolor sit amet',
                 'content' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-                'date' => 1540952466,
+                'date' => 1541266183,
                 'id_users' => 1,
-                'created_at' => 1540952466,
-                'updated_at' => 1540952466,
+                'created_at' => 1541266183,
+                'updated_at' => 1541266183,
                 'active' => 1
             ],
         ];

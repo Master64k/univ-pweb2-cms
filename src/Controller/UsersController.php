@@ -2,8 +2,6 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\Event\Event;
-
 
 /**
  * Users Controller
@@ -14,39 +12,6 @@ use Cake\Event\Event;
  */
 class UsersController extends AppController
 {
-
-    public function initialize()
-    {
-        parent::initialize();
-    }
-
-
-    public function beforeFilter(Event $event)
-    {
-        parent::beforeFilter($event);
-        // Permitir aos usuários se registrarem e efetuar logout.
-        // Você não deve adicionar a ação de "login" a lista de permissões.
-        // Isto pode causar problemas com o funcionamento normal do AuthComponent.
-        $this->Auth->allow(['add', 'logout']);
-    }
-
-    public function login()
-    {
-
-        $this->viewBuilder()->setLayout('login');
-
-        if ($this->request->is('post'))
-        {
-
-            $user = $this->Auth->identify();
-
-            if ($user) {
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
-            }
-            $this->Flash->error(__('Usuário ou senha ínvalido, tente novamente'));
-        }
-    }
 
     /**
      * Index method
@@ -87,11 +52,11 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('O usuário foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('O usuário não pode ser salvo, tente novamente.'));
         }
         $this->set(compact('user'));
     }
@@ -115,9 +80,30 @@ class UsersController extends AppController
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->set(__('O usuário não pode ser salvo, tente novamente.'));
         }
         $this->set(compact('user'));
+    }
+
+    public function login()
+    {
+        $this->viewBuilder()->setLayout('login');
+
+        if ($this->request->is('post'))
+        {
+            $user = $this->Auth->identify();
+            if ($user)
+            {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            else $this->Flash->error(__('Usuário ou senha ínvalido, tente novamente.'));
+        }
+    }
+
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
     }
 
     /**
@@ -132,9 +118,9 @@ class UsersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+            $this->Flash->success(__('O usuário foi deletado.'));
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            $this->Flash->error(__('O usuário não pode ser deletado, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

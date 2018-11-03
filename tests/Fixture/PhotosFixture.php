@@ -34,7 +34,7 @@ class PhotosFixture extends TestFixture
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
             'photos_bannersphotos_fk' => ['type' => 'foreign', 'columns' => ['banners_id'], 'references' => ['banners_photos', 'id'], 'update' => 'noAction', 'delete' => 'restrict', 'length' => []],
-            'photos_newsphotos_fk' => ['type' => 'foreign', 'columns' => ['news_id'], 'references' => ['news_photos', 'id'], 'update' => 'noAction', 'delete' => 'restrict', 'length' => []],
+            'photos_news_fk' => ['type' => 'foreign', 'columns' => ['news_id'], 'references' => ['news', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
             'photos_pagesphotos_fk' => ['type' => 'foreign', 'columns' => ['page_id'], 'references' => ['pages_photos', 'id'], 'update' => 'noAction', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
@@ -59,8 +59,8 @@ class PhotosFixture extends TestFixture
                 'page_id' => 1,
                 'news_id' => 1,
                 'banners_id' => 1,
-                'created_at' => 1540952467,
-                'updated_at' => 1540952467,
+                'created_at' => 1541266184,
+                'updated_at' => 1541266184,
                 'active' => 1
             ],
         ];

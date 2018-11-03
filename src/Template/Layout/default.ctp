@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -45,11 +45,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
        <?= $this->Html->meta('icon') ?>
 
        <!-- <?= $this->Html->css('style.css')  ?> -->
-       <?= $this->Html->css('bootstrap\bootstrap.css') ?>
+       <?= $this->Html->css('bootstrap/bootstrap.css') ?>
        <?= $this->Html->css('dashboard.css') ?>
 
-       <?= $this->Html->script('jquery\jquery.js') ?>
-       <?= $this->Html->script('bootstrap\bootstrap.js') ?>
+       <?= $this->Html->script('jquery/jquery.js') ?>
+       <?= $this->Html->script('bootstrap/bootstrap.js') ?>
 
        <?= $this->fetch('meta') ?>
        <?= $this->fetch('css') ?>
@@ -177,17 +177,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
               <li class="nav-item">
-                <?= $this->Html->link('Informações básicas', '/news/index', ['class' => 'nav-link']) ?>
+                <?= $this->Html->link('Informações básicas', '/info/index', ['class' => 'nav-link']) ?>
                   <i class="fa fa-info"></i>
 
               </li>
 
-              <?php if($this->request->here() == '/contactus/index'): ?>
+              <?php if($this->request->here() == '/info/index'): ?>
 
                   <li class="nav-item">
 
-                      <?= $this->Html->link('Fale conosco', '/contactus/index', ['class' => 'nav-link active' ]) ?>
-                      <i class="fa fa-envelope"></i>
+                      <?= $this->Html->link('Informações básicas', '/info/index', ['class' => 'nav-link active' ]) ?>
+                      <i class="fa fa-info"></i>
 
                   </li>
 
@@ -202,11 +202,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
               <?php endif; ?>
 
-              <?php if($this->request->here() == '/faq/index'): ?>
+              <?php if($this->request->here() == '/banners/index'): ?>
 
                   <li class="nav-item">
 
-                      <?= $this->Html->link('FAQ', '/faq/index', ['class' => 'nav-link active' ]) ?>
+                      <?= $this->Html->link('Banners', '/banners/index', ['class' => 'nav-link active' ]) ?>
                       <i class="fa fa-question"></i>
 
                   </li>
@@ -222,11 +222,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
               <?php endif; ?>
 
-             <?php if($this->request->here() == '/faq/index'): ?>
+             <?php if($this->request->here() == '/faqs/index'): ?>
 
                  <li class="nav-item">
 
-                     <?= $this->Html->link('Banners', '/banners/index', ['class' => 'nav-link active' ]) ?>
+                     <?= $this->Html->link('FAQ', '/faqs/index', ['class' => 'nav-link active' ]) ?>
                      <i class="fa fa-images"></i>
 
                  </li>
@@ -235,7 +235,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
                  <li class="nav-item">
 
-                     <?= $this->Html->link('FAQ', '/faq/index', ['class' => 'nav-link']) ?>
+                     <?= $this->Html->link('FAQ', '/faqs/index', ['class' => 'nav-link']) ?>
                      <i class="fa fa-images"></i>
 
                  </li>

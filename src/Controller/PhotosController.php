@@ -20,6 +20,9 @@ class PhotosController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['News']
+        ];
         $photos = $this->paginate($this->Photos);
 
         $this->set(compact('photos'));
@@ -35,7 +38,7 @@ class PhotosController extends AppController
     public function view($id = null)
     {
         $photo = $this->Photos->get($id, [
-            'contain' => ['Pages', 'News', 'Banners']
+            'contain' => ['News', 'Pages', 'Banners']
         ]);
 
         $this->set('photo', $photo);
@@ -52,16 +55,16 @@ class PhotosController extends AppController
         if ($this->request->is('post')) {
             $photo = $this->Photos->patchEntity($photo, $this->request->getData());
             if ($this->Photos->save($photo)) {
-                $this->Flash->success(__('The photo has been saved.'));
+                $this->Flash->success(__('A foto foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The photo could not be saved. Please, try again.'));
+            $this->Flash->error(__('A foto não pôde ser salva, tente novamente.'));
         }
-        $pages = $this->Photos->Pages->find('list', ['limit' => 200]);
         $news = $this->Photos->News->find('list', ['limit' => 200]);
+        $pages = $this->Photos->Pages->find('list', ['limit' => 200]);
         $banners = $this->Photos->Banners->find('list', ['limit' => 200]);
-        $this->set(compact('photo', 'pages', 'news', 'banners'));
+        $this->set(compact('photo', 'news', 'pages', 'banners'));
     }
 
     /**
@@ -74,21 +77,21 @@ class PhotosController extends AppController
     public function edit($id = null)
     {
         $photo = $this->Photos->get($id, [
-            'contain' => ['Pages', 'News', 'Banners']
+            'contain' => ['Pages', 'Banners']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $photo = $this->Photos->patchEntity($photo, $this->request->getData());
             if ($this->Photos->save($photo)) {
-                $this->Flash->success(__('The photo has been saved.'));
+                $this->Flash->success(__('A foto foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The photo could not be saved. Please, try again.'));
+            $this->Flash->error(__('A foto não pôde ser salva, tente novamente.'));
         }
-        $pages = $this->Photos->Pages->find('list', ['limit' => 200]);
         $news = $this->Photos->News->find('list', ['limit' => 200]);
+        $pages = $this->Photos->Pages->find('list', ['limit' => 200]);
         $banners = $this->Photos->Banners->find('list', ['limit' => 200]);
-        $this->set(compact('photo', 'pages', 'news', 'banners'));
+        $this->set(compact('photo', 'news', 'pages', 'banners'));
     }
 
     /**
@@ -103,9 +106,9 @@ class PhotosController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $photo = $this->Photos->get($id);
         if ($this->Photos->delete($photo)) {
-            $this->Flash->success(__('The photo has been deleted.'));
+            $this->Flash->success(__('A foto foi deletada.'));
         } else {
-            $this->Flash->error(__('The photo could not be deleted. Please, try again.'));
+            $this->Flash->error(__('A foto não pôde ser deletada, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

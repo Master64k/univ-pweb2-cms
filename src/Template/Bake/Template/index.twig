@@ -22,17 +22,17 @@
 {% set fields = Bake.filterFields(fields, schema, modelObject, indexColumns, ['binary', 'text']) %}
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <!--<ul class="side-nav">-->
-    <h2 class="heading"><?= __('Actions') ?></h2>
+    <h2 class="heading"><?= __('Ações') ?></h2>
     <div class="btn-toolbar" role="toolbar" >
         <div class="btn-group btn-group-sm" >
 
-        <?= $this->Html->link(__('Novo {{ singularHumanName }}'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
+        <?= $this->Html->link(__('Novo(a) {{ singularHumanName }}'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
 {% set done = [] %}
 {% for type, data in associations %}
 {% for alias, details in data %}
 {% if details.navLink and details.controller is not same as(_view.name) and details.controller not in done %}
-        <?= $this->Html->link(__('List {{ alias|underscore|humanize }}'), ['class' => 'btn btn-primary'], ['controller' => '{{ details.controller }}', 'action' => 'index']) ?>
-        <?= $this->Html->link(__('New {{ alias|singularize|underscore|humanize }}'), ['class' => 'btn btn-primary'], ['controller' => '{{ details.controller }}', 'action' => 'add']) ?>
+        <?= $this->Html->link(__('Lista {{ alias|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'index'], ['class' => 'btn btn-secondary']) ?>
+        <?= $this->Html->link(__('Novo(a) {{ alias|singularize|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'add'], ['class' => 'btn btn-secondary']) ?>
 {% set done = done|merge([details.controller]) %}
 {% endif %}
 {% endfor %}

@@ -9,9 +9,10 @@
     $this->start('main');
 
 ?>
+<?= $this->Flash->render() ?>
 
 <div class="users form">
-<?= $this->Flash->render('auth') ?>
+
     <?= $this->Form->create() ?>
     <fieldset>
         <?= $this->Html->image('logo-admin.png', ['width' => '144', 'height' => '144']) ?>

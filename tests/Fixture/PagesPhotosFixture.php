@@ -49,8 +49,8 @@ class PagesPhotosFixture extends TestFixture
                 'id' => 1,
                 'page_id' => 1,
                 'photo_id' => 1,
-                'created_at' => 1540952467,
-                'update_at' => 1540952467,
+                'created_at' => 1541266183,
+                'update_at' => 1541266183,
                 'active' => 1
             ],
         ];

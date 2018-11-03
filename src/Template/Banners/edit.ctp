@@ -5,34 +5,39 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $banner->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $banner->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Banners'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Pages'), ['controller' => 'Pages', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Page'), ['controller' => 'Pages', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Photos'), ['controller' => 'Photos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Photo'), ['controller' => 'Photos', 'action' => 'add']) ?></li>
-    </ul>
+    <!--<ul class="side-nav">-->
+    <h2 class="heading"><?= __('Ações') ?></h2>
+    <div class="btn-toolbar" role="toolbar" >
+        <div class="btn-group btn-group-sm" >
+
+                            <?= $this->Form->postLink(
+                        __('Deletar'),
+                        ['action' => 'delete', $banner->id], ['class' => 'btn btn-danger'],
+                        ['confirm' => __('Tem certeza de que deseja deletar # {0}?', $banner->id)]
+                    )
+                ?>
+                            <?= $this->Html->link(__('Listar Banners'), ['action' => 'index'], ['class' => 'btn btn-secondary']) ?>
+                                <?= $this->Html->link(__('Lista Pages'), ['controller' => 'Pages', 'action' => 'index', 'class' => 'btn btn-secondary']) ?>
+                    <?= $this->Html->link(__('Novo Page'), ['controller' => 'Pages', 'action' => 'add', 'class' => 'btn btn-secondary']) ?>
+                                <?= $this->Html->link(__('Lista Photos'), ['controller' => 'Photos', 'action' => 'index', 'class' => 'btn btn-secondary']) ?>
+                    <?= $this->Html->link(__('Novo Photo'), ['controller' => 'Photos', 'action' => 'add', 'class' => 'btn btn-secondary']) ?>
+                    </div>
+    </div>
+
 </nav>
 <div class="banners form large-9 medium-8 columns content">
     <?= $this->Form->create($banner) ?>
     <fieldset>
         <legend><?= __('Edit Banner') ?></legend>
         <?php
-            echo $this->Form->control('title');
-            echo $this->Form->control('subtitle');
-            echo $this->Form->control('created_at');
-            echo $this->Form->control('updated_at');
-            echo $this->Form->control('active');
-            echo $this->Form->control('photos._ids', ['options' => $photos]);
-        ?>
+                                    echo $this->Form->control('title', ['class' => 'form-control']);
+                        echo $this->Form->control('subtitle', ['class' => 'form-control']);
+                        echo $this->Form->control('created_at', ['class' => 'form-control']);
+                        echo $this->Form->control('updated_at', ['class' => 'form-control']);
+                        echo $this->Form->control('active', ['class' => 'form-control']);
+                        echo $this->Form->control('photos._ids', ['options' => $photos]);
+                    ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Salvar'), ['class' => 'btn btn-primary mt-2']) ?>
     <?= $this->Form->end() ?>
 </div>

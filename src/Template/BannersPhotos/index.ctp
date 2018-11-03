@@ -5,18 +5,23 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Banners Photo'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Banners'), ['controller' => 'Banners', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Banner'), ['controller' => 'Banners', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Photos'), ['controller' => 'Photos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Photo'), ['controller' => 'Photos', 'action' => 'add']) ?></li>
-    </ul>
+    <!--<ul class="side-nav">-->
+    <h2 class="heading"><?= __('Ações') ?></h2>
+    <div class="btn-toolbar" role="toolbar" >
+        <div class="btn-group btn-group-sm" >
+
+        <?= $this->Html->link(__('Novo(a) Banners Photo'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
+        <?= $this->Html->link(__('Lista Banners'), ['controller' => 'Banners', 'action' => 'index'], ['class' => 'btn btn-secondary']) ?>
+        <?= $this->Html->link(__('Novo(a) Banner'), ['controller' => 'Banners', 'action' => 'add'], ['class' => 'btn btn-secondary']) ?>
+        <?= $this->Html->link(__('Lista Photos'), ['controller' => 'Photos', 'action' => 'index'], ['class' => 'btn btn-secondary']) ?>
+        <?= $this->Html->link(__('Novo(a) Photo'), ['controller' => 'Photos', 'action' => 'add'], ['class' => 'btn btn-secondary']) ?>
+        </div>
+    </div>
+    <!--</ul>-->
 </nav>
 <div class="bannersPhotos index large-9 medium-8 columns content">
     <h3><?= __('Banners Photos') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table cellpadding="0" cellspacing="0" class="table table-responsive table-striped">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -36,22 +41,23 @@
                 <td><?= h($bannersPhoto->updated_at) ?></td>
                 <td><?= $this->Number->format($bannersPhoto->active) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $bannersPhoto->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $bannersPhoto->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $bannersPhoto->id], ['confirm' => __('Are you sure you want to delete # {0}?', $bannersPhoto->id)]) ?>
+                    <div class="btn-group">
+                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $bannersPhoto->id], ['class' => 'btn btn-sm btn-primary']) ?>
+                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $bannersPhoto->id], ['class' => 'btn btn-sm btn-secondary']) ?>
+                        <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $bannersPhoto->id], ['class' => 'btn btn-sm btn-danger'], ['confirm' => __('Tem certeza de que quer deletar # {0}?', $bannersPhoto->id)]) ?>
+                    </div>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->first('<< ') ?>
+            <?= $this->Paginator->prev('<') ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->next('>') ?>
+            <?= $this->Paginator->last( '>>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-    </div>
+        <p><?= $this->Paginator->counter(['format' => __('Pagina {{page}} de {{page}}, mostrando {{current}} registros de {{count}} total')]) ?></p>
+
 </div>

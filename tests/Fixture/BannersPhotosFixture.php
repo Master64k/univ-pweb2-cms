@@ -47,8 +47,8 @@ class BannersPhotosFixture extends TestFixture
             [
                 'id' => 1,
                 'banners_id' => 1,
-                'created_at' => 1540952465,
-                'updated_at' => 1540952465,
+                'created_at' => 1541266182,
+                'updated_at' => 1541266182,
                 'active' => 1
             ],
         ];

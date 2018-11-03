@@ -52,11 +52,11 @@ class InfoController extends AppController
         if ($this->request->is('post')) {
             $info = $this->Info->patchEntity($info, $this->request->getData());
             if ($this->Info->save($info)) {
-                $this->Flash->success(__('The info has been saved.'));
+                $this->Flash->success(__('As informações foram salvas.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The info could not be saved. Please, try again.'));
+            $this->Flash->error(__('As informações não puderam ser salvas, tente novamente.'));
         }
         $this->set(compact('info'));
     }
@@ -76,11 +76,11 @@ class InfoController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $info = $this->Info->patchEntity($info, $this->request->getData());
             if ($this->Info->save($info)) {
-                $this->Flash->success(__('The info has been saved.'));
+                $this->Flash->success(__('As informações foram salvas.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The info could not be saved. Please, try again.'));
+            $this->Flash->error(__('As informações não puderam ser salvas, tente novamente.'));
         }
         $this->set(compact('info'));
     }
@@ -97,9 +97,9 @@ class InfoController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $info = $this->Info->get($id);
         if ($this->Info->delete($info)) {
-            $this->Flash->success(__('The info has been deleted.'));
+            $this->Flash->success(__('As informações foram deletadas.'));
         } else {
-            $this->Flash->error(__('The info could not be deleted. Please, try again.'));
+            $this->Flash->error(__('As informações não puderam ser deletadas, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

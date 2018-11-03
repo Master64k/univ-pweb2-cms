@@ -55,11 +55,11 @@ class VideosController extends AppController
         if ($this->request->is('post')) {
             $video = $this->Videos->patchEntity($video, $this->request->getData());
             if ($this->Videos->save($video)) {
-                $this->Flash->success(__('The video has been saved.'));
+                $this->Flash->success(__('O vídeo foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The video could not be saved. Please, try again.'));
+            $this->Flash->error(__('O vídeo não pôde ser salvo, tente novamente.'));
         }
         $videosGallery = $this->Videos->VideosGallery->find('list', ['limit' => 200]);
         $this->set(compact('video', 'videosGallery'));
@@ -80,11 +80,11 @@ class VideosController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $video = $this->Videos->patchEntity($video, $this->request->getData());
             if ($this->Videos->save($video)) {
-                $this->Flash->success(__('The video has been saved.'));
+                $this->Flash->success(__('O vídeo foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The video could not be saved. Please, try again.'));
+            $this->Flash->error(__('O vídeo não pôde ser salvo, tente novamente.'));
         }
         $videosGallery = $this->Videos->VideosGallery->find('list', ['limit' => 200]);
         $this->set(compact('video', 'videosGallery'));
@@ -102,9 +102,9 @@ class VideosController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $video = $this->Videos->get($id);
         if ($this->Videos->delete($video)) {
-            $this->Flash->success(__('The video has been deleted.'));
+            $this->Flash->success(__('O vídeo foi deletado.'));
         } else {
-            $this->Flash->error(__('The video could not be deleted. Please, try again.'));
+            $this->Flash->error(__('O vídeo não pôde ser deletado, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

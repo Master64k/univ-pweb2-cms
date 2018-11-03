@@ -54,8 +54,8 @@ class ContactUsFixture extends TestFixture
                 'title' => 'Lorem ipsum dolor sit amet',
                 'email' => 'Lorem ipsum dolor sit amet',
                 'message' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-                'created_at' => 1540952465,
-                'updated_at' => 1540952465,
+                'created_at' => 1541266182,
+                'updated_at' => 1541266182,
                 'active' => 1
             ],
         ];

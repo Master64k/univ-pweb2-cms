@@ -11,7 +11,6 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\PhotosTable|\Cake\ORM\Association\HasMany $Photos
  * @property \App\Model\Table\VideosGalleryTable|\Cake\ORM\Association\HasMany $VideosGallery
- * @property \App\Model\Table\PhotosTable|\Cake\ORM\Association\BelongsToMany $Photos
  *
  * @method \App\Model\Entity\News get($primaryKey, $options = [])
  * @method \App\Model\Entity\News newEntity($data = null, array $options = [])
@@ -44,11 +43,6 @@ class NewsTable extends Table
         ]);
         $this->hasMany('VideosGallery', [
             'foreignKey' => 'news_id'
-        ]);
-        $this->belongsToMany('Photos', [
-            'foreignKey' => 'news_id',
-            'targetForeignKey' => 'photo_id',
-            'joinTable' => 'news_photos'
         ]);
     }
 

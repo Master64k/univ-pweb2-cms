@@ -17,8 +17,8 @@ class NewsPhotosControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.news_photos',
-        'app.photos',
-        'app.news'
+        'app.news',
+        'app.photos'
     ];
 
     /**

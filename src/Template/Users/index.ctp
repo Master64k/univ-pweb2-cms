@@ -6,11 +6,11 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <!--<ul class="side-nav">-->
-    <h2 class="heading"><?= __('Actions') ?></h2>
+    <h2 class="heading"><?= __('Ações') ?></h2>
     <div class="btn-toolbar" role="toolbar" >
         <div class="btn-group btn-group-sm" >
 
-        <?= $this->Html->link(__('Novo User'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
+        <?= $this->Html->link(__('Novo(a) User'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
         </div>
     </div>
     <!--</ul>-->

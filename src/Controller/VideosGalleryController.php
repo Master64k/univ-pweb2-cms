@@ -55,11 +55,11 @@ class VideosGalleryController extends AppController
         if ($this->request->is('post')) {
             $videosGallery = $this->VideosGallery->patchEntity($videosGallery, $this->request->getData());
             if ($this->VideosGallery->save($videosGallery)) {
-                $this->Flash->success(__('The videos gallery has been saved.'));
+                $this->Flash->success(__('A galeria de vídeos foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The videos gallery could not be saved. Please, try again.'));
+            $this->Flash->error(__('A galeria de videos não pôde ser salva, tente novamente.'));
         }
         $news = $this->VideosGallery->News->find('list', ['limit' => 200]);
         $this->set(compact('videosGallery', 'news'));
@@ -80,11 +80,11 @@ class VideosGalleryController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $videosGallery = $this->VideosGallery->patchEntity($videosGallery, $this->request->getData());
             if ($this->VideosGallery->save($videosGallery)) {
-                $this->Flash->success(__('The videos gallery has been saved.'));
+                $this->Flash->success(__('A galeria de vídeos foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The videos gallery could not be saved. Please, try again.'));
+            $this->Flash->error(__('A galeria de videos não pôde ser salva, tente novamente.'));
         }
         $news = $this->VideosGallery->News->find('list', ['limit' => 200]);
         $this->set(compact('videosGallery', 'news'));
@@ -102,9 +102,9 @@ class VideosGalleryController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $videosGallery = $this->VideosGallery->get($id);
         if ($this->VideosGallery->delete($videosGallery)) {
-            $this->Flash->success(__('The videos gallery has been deleted.'));
+            $this->Flash->success(__('A galeria de vídeos foi deletada.'));
         } else {
-            $this->Flash->error(__('The videos gallery could not be deleted. Please, try again.'));
+            $this->Flash->error(__('A galeria de videos não pôde ser deletada, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

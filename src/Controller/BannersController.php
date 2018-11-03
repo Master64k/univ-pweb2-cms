@@ -52,11 +52,11 @@ class BannersController extends AppController
         if ($this->request->is('post')) {
             $banner = $this->Banners->patchEntity($banner, $this->request->getData());
             if ($this->Banners->save($banner)) {
-                $this->Flash->success(__('The banner has been saved.'));
+                $this->Flash->success(__('O banner foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The banner could not be saved. Please, try again.'));
+            $this->Flash->error(__('O banner não pôde ser salvo, tente novamente.'));
         }
         $photos = $this->Banners->Photos->find('list', ['limit' => 200]);
         $this->set(compact('banner', 'photos'));
@@ -77,11 +77,11 @@ class BannersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $banner = $this->Banners->patchEntity($banner, $this->request->getData());
             if ($this->Banners->save($banner)) {
-                $this->Flash->success(__('The banner has been saved.'));
+                $this->Flash->success(__('O banner foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The banner could not be saved. Please, try again.'));
+            $this->Flash->error(__('O banner não pôde ser salvo, tente novamente.'));
         }
         $photos = $this->Banners->Photos->find('list', ['limit' => 200]);
         $this->set(compact('banner', 'photos'));
@@ -99,9 +99,9 @@ class BannersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $banner = $this->Banners->get($id);
         if ($this->Banners->delete($banner)) {
-            $this->Flash->success(__('The banner has been deleted.'));
+            $this->Flash->success(__('O banner foi deletado.'));
         } else {
-            $this->Flash->error(__('The banner could not be deleted. Please, try again.'));
+            $this->Flash->error(__('O banner não pôde ser deletado, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

@@ -21,7 +21,6 @@ class PhotosControllerTest extends IntegrationTestCase
         'app.news',
         'app.banners',
         'app.banners_photos',
-        'app.news_photos',
         'app.pages_photos'
     ];
 
